@@ -1,0 +1,32 @@
+from random import randint  # подключаю генератор сл. чисел
+
+def Mass(n):
+    A = []  
+    Ln = [] 
+    i = 0
+    x = randint(1, n)
+
+    while i != n: 
+        if x not in Ln:
+            i += 1
+            Ln.append(x)
+        else:
+            x = randint(1, n)
+    print('массив размероностей', Ln)
+    print('массивы')
+    for i in Ln:  
+        B = []
+        for j in range(i):
+            B.append(randint(1, n))
+        print(B)
+        A.append(B)
+    for i in range(len(A)):
+        if len(A[i]) % 2 == 0:
+            A[i].sort()
+        else: A[i].sort(reverse = True)
+    
+    return ('общий массив', A)
+
+
+n = int(input('введи кол-во массивов'))
+print(Mass(n))
